@@ -1,4 +1,4 @@
-# Flashcards
+# Flashcards_API
 
 A small API that creates custom flashcards for dynamically revising notes.
 
