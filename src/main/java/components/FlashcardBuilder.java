@@ -25,7 +25,7 @@ public class FlashcardBuilder
         Answer[] options = { new Answer<>(true),
                              new Answer<>(false)
         };
-        Question<Boolean> trueOrFalseQuestion = new TrueOrFalse(
+        Question trueOrFalseQuestion = new TrueOrFalse(
                 statement, Arrays.asList(options), new Answer<>(correctAns));
         return new Flashcard(subject, trueOrFalseQuestion);
     }
@@ -47,18 +47,17 @@ public class FlashcardBuilder
         List<Answer<String>> ansChoices = new ArrayList<>();
         Answer<String> correctAns = new Answer<>(correctAnswer);
         choices.forEach(choice -> ansChoices.add(new Answer<>(choice)));
-        Question<String> multiChoiceQuestion = new MultipleChoice(question, ansChoices, correctAns);
+        Question multiChoiceQuestion = new MultipleChoice(question, ansChoices, correctAns);
         return new Flashcard(subject, multiChoiceQuestion);
     }
 
     /** This static method constructs and returns a Flashcard object of Multiple Select type question.
-        
         @param subject  - the subject (topic) of the question specified.
         @param question - the multiple select question to answer.
         @param selections - a List of String objects representing the individual answer selections the user has to choose from.
         @param correctAnswers - a list of designated answer selections designated to this particular Question. Multiple selection
                             correctAnswer Strings must be included in the original list of selections provided.
-        
+
         @return - a Flashcard object of Multiple Select question type.
     */
     public static Flashcard buildMultipleSelectCard(String subject, String question,
@@ -73,7 +72,7 @@ public class FlashcardBuilder
                 answer -> correctAns.add(ansSelections.stream().filter(
                         ans -> ans.getAnswer().equals(answer)).findFirst().get())
         );
-        Question<String> multSelectQuestion = new MultipleSelect(
+        Question multSelectQuestion = new MultipleSelect(
                 question, ansSelections, correctAns);
         return new Flashcard(subject, multSelectQuestion);
     }
@@ -93,7 +92,7 @@ public class FlashcardBuilder
 
         List<Answer<String>> answers = new ArrayList<>(hiddenAnswers.size());
         hiddenAnswers.forEach(ans -> answers.add(new Answer<>(ans.toLowerCase())));
-        Question<String> fillInBlankQuestion = new FillInBlank(question, answers);
+        Question fillInBlankQuestion = new FillInBlank(question, answers);
         return new Flashcard(subject, fillInBlankQuestion);
     }
 

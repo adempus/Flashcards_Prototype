@@ -7,11 +7,13 @@ import components.Question;
 import components.Question.*;
 
 public class Main {
+    static List<Flashcard> cardsList;
+
     public static void main(String[] args) {
         testMultipleChoiceCard(1);
-        testTrueOrFalseCard(2);
-        testMultipleSelectCard(3);
-        testFillInBlankCard(4);
+        //testTrueOrFalseCard(2);
+        //testMultipleSelectCard(3);
+        //testFillInBlankCard(4);
     }
 
     public static void testMultipleChoiceCard(int questionNum) {
