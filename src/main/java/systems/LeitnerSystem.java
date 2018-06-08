@@ -11,12 +11,14 @@ public class LeitnerSystem {
     private int numSessions = 3;
 
     /** Creates 3 sessions by default.
-     * @param flashcards - the flashcards to be processed in repetition sessions. */
+     * @param flashcards - the flashcards to be processed in repetition sessions.
+     */
     public LeitnerSystem(List<Flashcard> flashcards) {
         this(3, flashcards);
     }
 
-    /** @param numSessions - the number of study sessions for each flashcard. */
+    /** @param numSessions - the number of study sessions for each flashcard.
+     */
     public LeitnerSystem(int numSessions, List<Flashcard> flashcards) {
         this.sessionList = new ArrayList<>(numSessions);
         this.numSessions = numSessions;
@@ -35,11 +37,11 @@ public class LeitnerSystem {
         }
     }
 
-    /** Starts repetition sessions for all initialized flashcards. */
+    /** Starts repetition sessions for all initialized flashcards.
+     */
     public void start() { }
 
-    public class Session
-    {
+    public class Session {
         private Stack<Flashcard> cardStack;
 
         public Session(Flashcard ... flashcards) {

@@ -21,6 +21,7 @@ public class MultipleChoice extends Question {
         setCorrectAnswer(answer);
     }
 
+    // TODO: Ask Nikhil how to streamify this:
     private void initChoices() {
         char opt = 'A';
         multChoiceOptions = new HashMap<>(answerOptions.size());

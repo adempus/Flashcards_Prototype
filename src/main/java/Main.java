@@ -53,8 +53,8 @@ public class Main {
         Flashcard trueFalseCard = FlashcardBuilder.buildTrueOrFalseCard(subject, question, false);
         while (!trueFalseCard.isCorrectAns())
         {
-            System.out.println("Subject "+subject);
-            System.out.println("Question "+questionNum+".");
+            System.out.println("Subject: "+subject);
+            System.out.println("Question: "+questionNum+".");
             System.out.println(trueFalseCard.getQuestion().toString());
             printOptions(trueFalseCard.getQuestion());
             String input = new Scanner(System.in).nextLine();

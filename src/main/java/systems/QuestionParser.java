@@ -33,7 +33,6 @@ public class QuestionParser
         }
     }
 
-    // TODO: parse the questions from json string into actual flashcard questions.
     private void parseQuestions(String jsonContents) {
         this.cardsList = new ArrayList<>();
         final JsonParser jsonParser = Json.createParser(new StringReader(jsonContents));
@@ -52,15 +51,15 @@ public class QuestionParser
     private void discernKey(String key, JsonParser parser) {
         final String CATEGORY = "category", QUESTION = "question",
                 CORRECT_ANS = "correct_answer", INCORRECT_ANS = "incorrect_answers";
-
         parser.next();
-        switch (key) {
+        switch (key)
+        {
             case CATEGORY: category = parser.getString() ; break;
             case QUESTION: question = parser.getString() ; break;
             case CORRECT_ANS: correctAns = parser.getString() ; break;
             case INCORRECT_ANS:
-                choiceList = parser.getArrayStream().map(jsonVal ->
-                        jsonVal.toString().replace("\"", "")).collect(Collectors.toList());
+                choiceList = parser.getArrayStream().map(
+                        jsonVal -> jsonVal.toString().replace("\"", "")).collect(Collectors.toList());
                 choiceList.add(correctAns);
                 Collections.shuffle(choiceList);
                 initFlashcard();

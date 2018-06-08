@@ -1,6 +1,7 @@
 package components;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /** The Flashcard class encapsulates a Question object with a corresponding boolean flag for indicating whether or not the question
     was answered correctly. NOTE: Flashcard objects are a bit complicated to construct, and shouldn't be instantiated directly! 
@@ -114,11 +115,10 @@ public class Flashcard
 
     @Override
     public String toString() {
-        StringBuilder cardStringBuilder = new StringBuilder();
-        String text = "subject: "+subject+
-                "\nquestion: "+question+"\n---";
-        cardStringBuilder.append(text);
-        cardStringBuilder.append(question.getAnswerOptions().toString());
-        return cardStringBuilder.toString();
+        StringBuilder flashcardString = new StringBuilder();
+        flashcardString.append("\nSubject: "+subject
+                +"\nQuestion: "+question
+                +"\nOptions: "+getAnswerOptions());
+        return flashcardString.toString();
     }
 }
